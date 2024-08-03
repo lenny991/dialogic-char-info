@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://da5gnrd61dbad"]
+
+[ext_resource type="PackedScene" uid="uid://dbpkta2tjsqim" path="res://addons/dialogic/Editor/Common/hint_tooltip_icon.tscn" id="1_wlb21"]
+
+[node name="DefaultText" type="HBoxContainer"]
+size_flags_vertical = 0
+
+[node name="Label2" type="Label" parent="."]
+layout_mode = 2
+size_flags_vertical = 0
+text = "PROPERTY"
+
+[node name="HintTooltip" parent="." instance=ExtResource("1_wlb21")]
+layout_mode = 2
+tooltip_text = "This name will be displayed on the name label. You can use a dialogic variable. E.g. :{Player.name}"
+texture = null
+hint_text = "Hint"
+
+[node name="DisplayNameLineEdit" type="LineEdit" parent="."]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+caret_blink = true
+caret_blink_interval = 0.5

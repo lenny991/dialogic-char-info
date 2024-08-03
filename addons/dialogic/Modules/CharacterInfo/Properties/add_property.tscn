@@ -1,0 +1,19 @@
+[gd_scene load_steps=3 format=3 uid="uid://4c0uo517bgtr"]
+
+[ext_resource type="Script" path="res://addons/dialogic/Modules/CharacterInfo/Properties/character_property_add.gd" id="1_8sxn3"]
+[ext_resource type="PackedScene" uid="uid://cqwwyqoisychb" path="res://addons/dialogic/Modules/CharacterInfo/Properties/add_button.tscn" id="1_puotj"]
+
+[node name="PropertyName" type="HBoxContainer"]
+offset_right = 257.0
+offset_bottom = 31.0
+size_flags_horizontal = 3
+size_flags_vertical = 0
+script = ExtResource("1_8sxn3")
+
+[node name="LineEdit" type="LineEdit" parent="."]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="Add" parent="." instance=ExtResource("1_puotj")]
+layout_mode = 2
+tooltip_text = "Adds property to list of properties. Property's name cannot be changed after this."
