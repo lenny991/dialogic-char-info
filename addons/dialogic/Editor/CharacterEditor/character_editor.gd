@@ -165,6 +165,7 @@ func _ready() -> void:
 	add_settings_section(load("res://addons/dialogic/Editor/CharacterEditor/char_edit_section_general.tscn").instantiate(), %MainSettingsSections)
 	add_settings_section(load("res://addons/dialogic/Editor/CharacterEditor/char_edit_section_portraits.tscn").instantiate(), %MainSettingsSections)
 
+
 	add_settings_section(load("res://addons/dialogic/Editor/CharacterEditor/char_edit_p_section_main_exports.tscn").instantiate(), %PortraitSettingsSection)
 	add_settings_section(load("res://addons/dialogic/Editor/CharacterEditor/char_edit_p_section_exports.tscn").instantiate(), %PortraitSettingsSection)
 	add_settings_section(load("res://addons/dialogic/Editor/CharacterEditor/char_edit_p_section_main.tscn").instantiate(), %PortraitSettingsSection)
@@ -672,3 +673,4 @@ func _on_fit_preview_toggle_toggled(button_pressed):
 func _on_reference_manger_button_pressed() -> void:
 	editors_manager.reference_manager.open()
 	%PortraitChangeInfo.hide()
+
