@@ -2,6 +2,9 @@
 extends DialogicCharacterEditorMainSection
 class_name DialogicCharacterEditorCustomSection
 
+const CustomInfoName := "custom-info"
+const CustomInfoHintsName := "custom-info-type-hintsx"
+
 ## This is very ugly, but it does the job very well
 ## though it could be somehow reworked into something smarter maybe.
 
@@ -147,15 +150,16 @@ func _load_character(resource:DialogicCharacter) -> void:
 	
 	var custom_info = resource.custom_info
 	
-	if DialogicCharacter.CustomInfoName in custom_info:
-		var info_dict = custom_info[DialogicCharacter.CustomInfoName]
+	if CustomInfoName in custom_info:
+		var info_dict = custom_info[CustomInfoName]
 		for key in info_dict:
 			var value = info_dict[key]
 			var type:StringName
-			if DialogicCharacter.CustomInfoHintsName in custom_info and \
-					key in custom_info[DialogicCharacter.CustomInfoHintsName] and\
-					custom_info[DialogicCharacter.CustomInfoHintsName][key] != null:
-				type = custom_info[DialogicCharacter.CustomInfoHintsName][key]
+			
+			if CustomInfoHintsName in custom_info and \
+					key in custom_info[CustomInfoHintsName] and\
+					custom_info[CustomInfoHintsName][key] != null:
+				type = custom_info[CustomInfoHintsName][key]
 			else:
 				type = find_property_type(value)
 			create_property(key, value, type)
@@ -185,10 +189,11 @@ func _save_changes(resource:DialogicCharacter) -> DialogicCharacter:
 		custom_info_hints[key] = property.type
 		custom_info[key] = property.get_property()
 	
-	resource.custom_info[DialogicCharacter.CustomInfoName] = custom_info
-	resource.custom_info[DialogicCharacter.CustomInfoHintsName] = custom_info_hints
+	resource.custom_info[CustomInfoName] = custom_info
+	resource.custom_info[CustomInfoHintsName] = custom_info_hints
 	
 	return resource
+
 
 #endregion OVERRIDES
 
